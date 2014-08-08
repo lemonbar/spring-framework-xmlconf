@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+    we can use <import> element to import other resource contains beans.
+    <import resource="services2.xml"/>
+    -->
+    <!--
+    id is a string to identify the individual bean definition.
+    class defines the type of the bean, uses the fully qualified classname.
+    -->
+    <bean id="messageService" class="com.lemon.spring.MessageServiceImpl"/>
+    <bean id="messagePrinter" class="com.lemon.spring.MessagePrinter">
+        <!--constructor method parameters.-->
+        <constructor-arg ref="messageService"/>
+    </bean>
+</beans>
